@@ -1,13 +1,125 @@
 [
   {
-    "Name": "Amigo",
+    "Name": "Doc. Murdock",
     "Attributes": {
       "Amigou": 2,
-      "Joder": 1
+      "Joder": 2
     }
   },
   {
-    "Name": "Amigo",
+    "Name": "The Maleman",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Ron Smoke",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Pt. Mahoney",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Colonel Matthews",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Fat Pumpkin",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Master Waves",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Sugar Daddy",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "DeadLocke",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Donald Stinky",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Papa Smith",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Notorious P.I.G.",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Big John",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Reverend Gonsales",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "TNT Explosion",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Poison X",
+    "Attributes": {
+      "Amigou": 3,
+      "Joder": 2
+    }
+  },
+  {
+    "Name": "Goldie Dante's",
+    "Attributes": {
+      "Amigou": 4,
+      "Joder": 3
+    }
+  },
+  {
+    "Name": "Carl Doggo",
     "Attributes": {
       "Amigou": 4,
       "Joder": 3

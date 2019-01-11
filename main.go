@@ -14,8 +14,7 @@ type Character struct {
 	Attributes map[string]float64
 }
 
-// ObtainVector obtains the vector from attribute map
-func ObtainVector(atts map[string]float64) []float64 {
+func obtainVector(atts map[string]float64) []float64 {
 
 	values := make([]float64, 0, len(atts))
 
@@ -26,8 +25,7 @@ func ObtainVector(atts map[string]float64) []float64 {
 	return values
 }
 
-// Cosine calculates cosine
-func Cosine(a []float64, b []float64) (cosine float64, err error) {
+func cosine(a []float64, b []float64) (cosine float64, err error) {
 	count := 0
 	lengthA := len(a)
 	lengthB := len(b)
@@ -70,11 +68,46 @@ func loadDatabase() []Character {
 	return database
 }
 
+func compareCharacter(database []Character, myCharacter *Character) *Character {
+
+	var mostSimilar Character
+	var maxSimilarity float64
+
+	for _, current := range database {
+
+		cosine, err := cosine(
+			obtainVector(myCharacter.Attributes),
+			obtainVector(current.Attributes))
+
+		if err == nil && cosine > maxSimilarity {
+			mostSimilar = current
+			maxSimilarity = cosine
+		}
+	}
+
+	return &mostSimilar
+}
+
+func menuCompareCharacter(database []Character) *Character {
+
+	myCharacter := Character{}
+
+	myCharacter.Attributes = make(map[string]float64)
+	myCharacter.Attributes["Amigou"] = 2
+	myCharacter.Attributes["Joder"] = 2
+
+	character := compareCharacter(database, &myCharacter)
+
+	fmt.Printf("%+v\n", character)
+
+	return character
+}
+
 func storeDatabase(database []Character) error {
 
-	s3, _ := json.MarshalIndent(database, "", "  ")
+	dbBytes, _ := json.MarshalIndent(database, "", "  ")
 
-	return ioutil.WriteFile("database.json", s3, 0644)
+	return ioutil.WriteFile("database.json", dbBytes, 0644)
 }
 
 func menu() uint8 {
@@ -82,6 +115,8 @@ func menu() uint8 {
 	fmt.Println("--- MENU ---")
 	fmt.Println("1.\tCreate character")
 	fmt.Println("2.\tCompare character")
+	fmt.Println("3.\tModify character")
+	fmt.Println("4.\tDelete character")
 	fmt.Println("0.\tExit")
 
 	var option uint8
@@ -94,7 +129,7 @@ func menu() uint8 {
 	return option
 }
 
-func menuLoop() {
+func menuLoop(database []Character) {
 
 Menu:
 	for {
@@ -104,9 +139,12 @@ Menu:
 		case 1:
 			fmt.Println("CREATE")
 		case 2:
-			fmt.Println("COMPARE")
+			menuCompareCharacter(database)
+		case 3:
+			fmt.Println("MODIFY")
+		case 4:
+			fmt.Println("DELETE")
 		case 0:
-			fmt.Println("WHATEVER")
 			break Menu
 		default:
 			fmt.Println("WRONG OPTION")
@@ -118,7 +156,7 @@ func main() {
 
 	database := loadDatabase()
 
-	menuLoop()
+	menuLoop(database)
 
 	storeDatabase(database)
 }
